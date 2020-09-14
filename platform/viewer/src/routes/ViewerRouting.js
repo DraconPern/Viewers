@@ -4,6 +4,7 @@ import { utils, user } from '@ohif/core';
 //
 import ConnectedViewerRetrieveStudyData from '../connectedComponents/ConnectedViewerRetrieveStudyData';
 import useServer from '../customHooks/useServer';
+import useEspressoServer from '../customHooks/useEspressoServer';
 import useQuery from '../customHooks/useQuery';
 const { urlUtil: UrlUtil } = utils;
 
@@ -41,7 +42,7 @@ function ViewerRouting({ match: routeMatch, location: routeLocation }) {
     user.getAccessToken = () => authToken;
   }
 
-  const server = useServer({ project, location, dataset, dicomStore });
+  const server = useEspressoServer({ project, location, dataset, dicomStore });
   const studyUIDs = UrlUtil.paramString.parseParam(studyInstanceUIDs);
   const seriesUIDs = getSeriesInstanceUIDs(seriesInstanceUIDs, routeLocation);
 

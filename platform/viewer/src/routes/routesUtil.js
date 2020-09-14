@@ -57,6 +57,16 @@ const ROUTES_DEF = {
       component: IHEInvokeImageDisplay
     },
   },
+  espressomedical: {
+    viewer: {
+      path:
+        '/site/:dicomStore/study/:studyInstanceUIDs',
+      component: ViewerRouting,
+      condition: appConfig => {
+        return !!appConfig.enableEspressoMedical;
+      },
+    },
+  },
   gcloud: {
     viewer: {
       path:
@@ -118,6 +128,10 @@ const parseViewerPath = (appConfig = {}, server = {}, params) => {
   let viewerPath = ROUTES_DEF.default.viewer.path;
   if (appConfig.enableGoogleCloudAdapter) {
     viewerPath = ROUTES_DEF.gcloud.viewer.path;
+  }
+
+  if (appConfig.enableEspressoMedical) {
+    viewerPath = ROUTES_DEF.espressomedical.viewer.path;
   }
 
   return parsePath(viewerPath, server, params);
