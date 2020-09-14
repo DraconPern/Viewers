@@ -60,7 +60,7 @@ const ROUTES_DEF = {
   espressomedical: {
     viewer: {
       path:
-        '/site/:datasets/study/:studyInstanceUIDs',
+        '/site/:dataset/study/:studyInstanceUIDs',
       component: ViewerRouting,
       condition: appConfig => {
         return !!appConfig.enableEspressoMedical;
