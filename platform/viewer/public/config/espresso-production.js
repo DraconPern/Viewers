@@ -27,6 +27,7 @@ window.config = {
       scope: 'openid', // email profile openid
       // ~ OPTIONAL
       post_logout_redirect_uri: '/logout-redirect.html',
+      silent_redirect_uri: '/callback'
     },
   ],
 }
