@@ -32,7 +32,7 @@ const getServers = (appConfig, project, location, dataset, dicomStore) => {
       wadoRoot: 'https://api.espressomedical.com/api/dicomweb/' + dataset,
       supportsFuzzyMatching: false,
       qidoSupportsIncludeField: false,
-      enableStudyLazyLoad: false,
+      enableStudyLazyLoad: true,
     },
   ];
 };
