@@ -49,6 +49,8 @@ export function setConfiguration(appConfig) {
       if (headers.Authorization) {
         xhr.setRequestHeader('Authorization', headers.Authorization);
       }
+
+      xhr.setRequestHeader('Accept', 'multipart/related; type="application/octet-stream", multipart/related=image/dicom+jpx; transfer-syntax=1.2.840.10008.1.2.4.80, multipart/related=image/dicom+jpx; transfer-syntax=1.2.840.10008.1.2.4.81');
     },
     errorInterceptor: error => {
       // const { appConfig = {} } = AppContext;
